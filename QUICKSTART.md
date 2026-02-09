@@ -22,11 +22,17 @@ Unzip the folder anywhere on your computer (like your Desktop or Documents folde
 
 ## Step 2: Open Command Prompt in the Folder
 
+**Easiest way:**
 1. Open the unzipped `ai-job-matcher` folder
-2. Click on the address bar at the top (where it shows the folder path)
-3. Type `cmd` and press Enter
+2. Right-click in the empty space (not on a file or folder)
+3. Select **"Open in Terminal"** (or **"Open Command Prompt here"**)
 
 A black command window should pop up.
+
+**Alternative if that doesn't work:**
+1. Left-click on the folder path shown at the top of the window
+2. Type `cmd` and press Enter
+3. A black window should appear
 
 ## Step 3: Install (One-time Setup)
 
