@@ -39,10 +39,13 @@ A black command window should pop up.
 In the command prompt, copy and paste this and press Enter:
 
 ```
-pip install -r requirements.txt
+python -m pip install scikit-learn --only-binary :all:
+python -m pip install nltk
 ```
 
 Wait for it to finish (it might take a minute or two).
+
+**If you see an error about "Visual C++"**, that's normal on Windows! The commands above will work around it by installing pre-built versions.
 
 ## Step 4: Try It Out With Sample Files
 
