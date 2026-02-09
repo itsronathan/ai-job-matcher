@@ -1,0 +1,41 @@
+Senior Backend Developer
+Tech Solutions Corp
+
+JOB DESCRIPTION
+
+We are looking for an experienced Senior Backend Developer to join our team.
+You will be responsible for designing and maintaining scalable backend services.
+
+RESPONSIBILITIES
+- Design and implement robust REST APIs
+- Develop microservices architecture applications
+- Optimize database queries and improve system performance
+- Write clean, well-tested code following best practices
+- Collaborate with frontend developers and product team
+- Mentor junior team members
+
+REQUIRED SKILLS
+- 5+ years of experience with Python or Java
+- Strong experience with relational databases (PostgreSQL, MySQL)
+- Experience with REST API design and development
+- Understanding of microservices architecture
+- Experience with Docker and containerization
+- Proficiency with Git and version control
+- Knowledge of cloud platforms (AWS or Azure)
+- Strong problem-solving skills
+- Experience with Agile development methodologies
+
+PREFERRED SKILLS
+- Experience with Kubernetes
+- Knowledge of MongoDB or NoSQL databases
+- Experience with CI/CD pipelines
+- AWS certification
+- Experience with system design and scalability
+
+COMPENSATION
+- Competitive salary
+- Health benefits
+- Remote work options
+
+APPLICATION
+Apply at: careers@techsolutions.com

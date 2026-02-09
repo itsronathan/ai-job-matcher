@@ -1,0 +1,35 @@
+John Smith
+Software Developer
+john.smith@email.com | (555) 123-4567
+
+SUMMARY
+Experienced software developer with a strong background in Python, Java, and web development. 
+Skilled in building scalable applications and working with databases. 
+Passionate about clean code and collaborative development.
+
+SKILLS
+- Languages: Python, Java, JavaScript, SQL
+- Frameworks: Django, Flask, Spring Boot
+- Databases: MySQL, PostgreSQL, MongoDB
+- Tools: Git, Docker, Linux, AWS
+- Concepts: REST APIs, Microservices, OOP, Agile
+
+EXPERIENCE
+
+Senior Software Developer | Tech Company Inc. | 2021 - Present
+- Developed backend services using Python and Flask
+- Designed and implemented RESTful APIs
+- Optimized database queries improving performance by 30%
+- Mentored junior developers on best practices
+
+Junior Developer | Startup Co. | 2019 - 2021
+- Built web applications using Django and PostgreSQL
+- Worked with Git for version control and collaboration
+- Participated in daily stand-ups following Agile methodology
+
+EDUCATION
+Bachelor of Science in Computer Science | University of Tech | 2019
+
+CERTIFICATIONS
+- AWS Certified Cloud Practitioner
+- Certified Kubernetes Administrator
