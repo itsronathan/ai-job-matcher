@@ -219,6 +219,25 @@ if match_pct >= 90:  # Changed from 80
 
 ## Troubleshooting
 
+### "Microsoft Visual C++ 14.0 or greater is required" (Windows)
+**Issue:** This error occurs when scikit-learn tries to compile C code on Windows without the necessary build tools.
+
+**Solution Options:**
+1. **Quick Fix (Recommended):** Install from a pre-built wheel:
+   ```bash
+   pip install scikit-learn --only-binary :all:
+   pip install nltk
+   ```
+
+2. **Alternative:** Create a virtual environment (ensures clean installation):
+   ```bash
+   python -m venv venv
+   venv\Scripts\activate
+   pip install -r requirements.txt
+   ```
+
+3. **For Permanent Solution:** Download and install [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
+
 ### "ModuleNotFoundError: No module named 'sklearn'"
 **Solution:** Install dependencies with `pip install -r requirements.txt`
 
