@@ -82,16 +82,22 @@ Enter the path to the job description file: my_job.txt
 
 ## Troubleshooting
 
-### "Python is not recognized"
-You need to install Python first from: https://www.python.org/downloads/
+### "pip is not recognized" or "python is not recognized"
+This means Python isn't installed or wasn't added to your PATH.
 
-When installing, **check the box that says "Add Python to PATH"**
+**Fix:**
+1. Go to https://www.python.org/downloads/ and download Python
+2. Run the installer
+3. **VERY IMPORTANT:** Before clicking "Install", scroll down and **CHECK the box that says "Add Python to PATH"**
+4. Click Install
+5. Close and reopen Command Prompt
+6. Try the install commands again
 
 ### "Microsoft Visual C++ error"
 Copy and paste this:
 ```
-pip install scikit-learn --only-binary :all:
-pip install nltk
+python -m pip install scikit-learn --only-binary :all:
+python -m pip install nltk
 ```
 
 ### "File not found"
