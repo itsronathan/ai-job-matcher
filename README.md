@@ -150,7 +150,14 @@ Missing Skills (5):
    - **Matched Skills**: Keywords that appear in both documents
      - Includes synonym matching via WordNet (e.g. “aws” ↔ “amazon web services”)
      - Uses fuzzy comparison to catch spelling variants and close matches
-   - **Missing Skills**: Keywords from job description not in resume (after synonym/fuzzy filtering)
+     - Education/major synonyms are normalized (e.g. “computer science” → “engineering”)
+     - If a "Qualifications" or similar section exists in the job description, only its text
+       is used for keyword extraction, ensuring the matcher focuses on required skills.
+   - **Missing Skills**: Keywords from the qualifications section (or full job text if none)
+     that are not present in the resume (after synonym/fuzzy filtering)
+   - **Qualification Summary**: Reports how many required qualifications were matched
+     along with a simple percentage, giving a clearer view of how the resume lines up
+     with the job’s explicit requirements.
 
 ## Code Structure
 
