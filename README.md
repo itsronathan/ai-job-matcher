@@ -133,7 +133,8 @@ Missing Skills (5):
 ### 2. **Keyword Extraction**
    - Identifies the top 30 keywords from resume
    - Identifies the top 30 keywords from job description
-   - Uses word frequency as the extraction metric
+   - Uses TF-IDF with n‑grams (1‑2 words) for more accurate keyword scoring
+   - Lemmatizes words to treat "developed" and "develop" as the same term
 
 ### 3. **Match Score Calculation**
    - Uses TF-IDF (Term Frequency-Inverse Document Frequency) vectorization
@@ -147,7 +148,9 @@ Missing Skills (5):
 
 ### 4. **Skill Analysis**
    - **Matched Skills**: Keywords that appear in both documents
-   - **Missing Skills**: Keywords from job description not in resume
+     - Includes synonym matching via WordNet (e.g. “aws” ↔ “amazon web services”)
+     - Uses fuzzy comparison to catch spelling variants and close matches
+   - **Missing Skills**: Keywords from job description not in resume (after synonym/fuzzy filtering)
 
 ## Code Structure
 
@@ -162,6 +165,12 @@ The main script contains a `JobMatcher` class with these key methods:
 - `match(resume_path, job_path)` - Runs the complete analysis
 
 ## Customization
+
+### Alias / Synonym Mapping
+You can add your own domain‑specific mappings to `skill_aliases` in `JobMatcher` so that terms like
+"amazon web services" are treated as `aws` or "gcp" as "google cloud". This helps the matcher
+recognize different ways of referring to the same skill.
+
 
 You can easily modify the script for your needs:
 
