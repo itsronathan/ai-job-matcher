@@ -256,6 +256,57 @@ class JobMatcher:
 
         return ' '.join(section_lines)
 
+    def match_texts(self, resume_text, job_text):
+        """
+        Perform full job matching analysis using raw text inputs.
+
+        This is useful for web forms and pasted text.
+        """
+        if not resume_text or not job_text:
+            return None
+
+        # Preprocess texts
+        resume_processed = self.preprocess_text(resume_text)
+        job_processed = self.preprocess_text(job_text)
+
+        # if a qualifications section exists, only use that text for keyword extraction
+        qual_section = self.extract_qualification_section(job_text)
+        if qual_section:
+            job_for_keywords = self.preprocess_text(qual_section)
+        else:
+            job_for_keywords = job_processed
+
+        # Extract keywords
+        resume_keywords = self.extract_keywords(resume_processed, num_keywords=30)
+        job_keywords = self.extract_keywords(job_for_keywords, num_keywords=30)
+
+        # normalize skill aliases (e.g. "amazon web services" -> "aws")
+        resume_keywords = [self.skill_aliases.get(k, k) for k in resume_keywords]
+        job_keywords = [self.skill_aliases.get(k, k) for k in job_keywords]
+
+        # Calculate match score
+        match_score = self.calculate_match_score(resume_processed, job_processed)
+
+        # Find matched and missing skills
+        matched_skills = self.find_matched_skills(resume_keywords, job_keywords)
+        missing_skills = self.find_missing_skills(resume_keywords, job_keywords)
+
+        total_quals = len(job_keywords)
+        matched_count = len(matched_skills)
+        qual_pct = (matched_count / total_quals * 100) if total_quals > 0 else 0.0
+
+        return {
+            'match_score': match_score,
+            'match_percentage': match_score * 100,
+            'qualified_matches': matched_count,
+            'total_qualifications': total_quals,
+            'qualification_match_percentage': qual_pct,
+            'matched_skills': matched_skills,
+            'missing_skills': missing_skills,
+            'resume_keywords': resume_keywords,
+            'job_keywords': job_keywords
+        }
+
     def match(self, resume_path, job_path):
         """
         Perform full job matching analysis.
@@ -267,16 +318,9 @@ class JobMatcher:
         Returns:
             dict: Results including match score, matched skills, and missing skills
         """
-        # Load files
         resume_text = self.load_file(resume_path)
         job_text = self.load_file(job_path)
-        
-        if not resume_text or not job_text:
-            return None
-        
-        # Preprocess texts
-        resume_processed = self.preprocess_text(resume_text)
-        job_processed = self.preprocess_text(job_text)
+        return self.match_texts(resume_text, job_text)
 
         # if a qualifications section exists, only use that text for keyword extraction
         qual_section = self.extract_qualification_section(job_text)

@@ -23,9 +23,12 @@ This tool helps job seekers quickly assess how well their resume matches a job p
 
 ```
 ai-job-matcher/
-├── job_matcher.py              # Main Python script
+├── app.py                       # Flask web application
+├── job_matcher.py               # Main Python matcher logic
 ├── requirements.txt             # Project dependencies
 ├── README.md                    # This file
+├── templates/                   # Flask HTML templates
+│   └── index.html               # Web UI for matching resumes and jobs
 ├── .gitignore                   # Git ignore rules
 └── data/
     ├── sample_resume.txt        # Example resume
@@ -91,6 +94,53 @@ When prompted, enter:
    python job_matcher.py
    ```
 4. Enter the file paths when prompted
+
+### Running as a Web App
+
+After installing dependencies, launch the web app with:
+
+```bash
+python app.py
+```
+
+Then visit `http://127.0.0.1:5000` in your browser. You can:
+- paste resume text or upload a `.txt` resume file
+- paste job description text or upload a `.txt` job description file
+- view matched skills, missing qualifications, and score summaries
+
+### Exposing the App to the Internet
+
+To make the site publicly available locally, use the tunnel launcher:
+
+```bash
+set NGROK_AUTHTOKEN=your_auth_token_here
+python run_tunnel.py
+```
+
+This will start the Flask app locally and open a public ngrok URL. You must have an ngrok account and set your auth token in the environment first.
+
+### Deploying to Render
+
+You can deploy this app directly from GitHub using Render.
+
+1. Push your repository to GitHub.
+2. Create a new Web Service on Render.
+3. Select your repo and branch.
+4. Set the build command to:
+
+```bash
+pip install -r requirements.txt
+```
+
+5. Set the start command to:
+
+```bash
+gunicorn app:app --bind 0.0.0.0:$PORT
+```
+
+6. Deploy, then open the public URL Render provides.
+
+Render will run your Flask app on the internet without requiring local tunneling.
 
 ### Example Output
 
