@@ -152,6 +152,21 @@ gunicorn app:app --bind 0.0.0.0:$PORT
 
 Render will run your Flask app on the internet without requiring local tunneling.
 
+### Automate deployment with GitHub Actions
+
+This repo now includes a workflow that can deploy to Render automatically whenever `main` is updated.
+
+Before using it, add the following GitHub secrets to your repository:
+
+- `RENDER_API_KEY` — your Render API key
+- `RENDER_SERVICE_ID` — the ID of the service created in Render
+
+To find these:
+- Render API key: https://dashboard.render.com/account/api-keys
+- Service ID: open your service in Render and copy the ID from the URL or service settings
+
+Once the secrets are set, pushing to `main` will run tests and deploy to Render automatically.
+
 ### Example Output
 
 ```
