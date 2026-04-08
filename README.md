@@ -85,6 +85,15 @@ When prompted, enter:
 - Resume file path: `data/sample_resume.txt`
 - Job description file path: `data/sample_job_description.txt`
 
+### GitHub Development
+
+This project now includes a GitHub Actions workflow.
+When you push to `main` or open a pull request against `main`, GitHub will:
+- install the required Python dependencies
+- run `python test_matcher.py`
+
+This makes it easy to develop on GitHub and catch issues before deployment.
+
 ### Using Your Own Files
 
 1. Create or prepare your resume as a plain text file (`.txt`)
