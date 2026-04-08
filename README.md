@@ -137,7 +137,8 @@ pip install -r requirements.txt
 ```bash
 gunicorn app:app --bind 0.0.0.0:$PORT
 ```
-
+- Make sure Render uses Python 3.13 by adding `runtime.txt` to the repo.
+  This avoids scikit-learn build issues on newer Python versions like 3.14.
 6. Deploy, then open the public URL Render provides.
 
 Render will run your Flask app on the internet without requiring local tunneling.
